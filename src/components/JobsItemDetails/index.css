@@ -1,0 +1,240 @@
+.job-item-details-container {
+  display: flex;
+  justify-content: center;
+  background-color: #000000;
+  height: 100%;
+  padding: 32px;
+}
+
+.job-details-container {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  background-color: #272727;
+  color: white;
+  padding: 35px;
+  border-radius: 10px;
+}
+
+.job-details-company-log-role-container {
+  display: flex;
+  align-items: center;
+}
+
+.job-details-company-logo {
+  width: 80px;
+  height: 90px;
+  align-self: flex-start;
+  margin-right: 5px;
+}
+
+.job-details-role-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.job-details-role-title {
+  color: white;
+  font-size: 25px;
+  margin-bottom: 0px;
+}
+
+.job-details-rating-container {
+  display: flex;
+  margin-top: 0px;
+  align-items: center;
+}
+
+.job-details-star-icon {
+  color: #fbbf24;
+}
+
+.job-details-rating {
+  color: #ffffff;
+  font-size: 18px;
+  font-family: 'Roboto';
+  margin-left: 5px;
+}
+
+.job-details-other-details-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px;
+  width: 100%;
+}
+
+.job-details-location-and-type-container {
+  display: flex;
+}
+
+.job-details-location-container {
+  display: flex;
+  align-items: center;
+  margin-right: 25px;
+}
+
+.job-details-location-icon {
+  color: #ffffff;
+  margin-right: 8px;
+}
+
+.job-details-location {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 20px;
+}
+
+.job-details-type-container {
+  display: flex;
+  align-items: center;
+}
+
+.job-details-type-icon {
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+.job-details-type {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 20px;
+}
+
+.job-details-package {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.job-details-description-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.job-details-heading-and-link-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job-details-description-heading {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 25px;
+  margin-bottom: 0px;
+}
+
+.visit-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #6366f1;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.job-details-description {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.job-details-skills-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.job-details-skills-items-container {
+  padding: 0;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.skill-item {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.skill-img {
+  width: 70px;
+  margin-right: 5px;
+}
+
+.skill-name {
+  color: #ffffff;
+  font-size: 18px;
+  font-family: 'Roboto';
+  margin-left: 13px;
+  font-weight: 600;
+}
+.job-details-life-at-company-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.job-details-life-at-company {
+  display: flex;
+  flex-direction: row;
+}
+
+.life-at-company-paragraph {
+  margin-right: 30px;
+  width: 45vw;
+}
+.life-at-img {
+  width: 200px;
+  height: 160px;
+  border-radius: 18px;
+}
+
+//
+.similar-jobs-list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.job-details-failure-view-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.job-details-failure-view-image {
+  width: 300px;
+}
+
+.job-details-failure-view-error {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: 'Roboto';
+}
+
+.job-details-failure-view-message {
+  text-align: center;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 200;
+  font-family: 'Roboto';
+  margin-top: 0;
+}
+
+.job-details-loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}

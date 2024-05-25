@@ -1,0 +1,28 @@
+.filter-groups {
+  display: flex;
+  flex-direction: column;
+}
+
+.employment-heading {
+  font-size: 20px;
+  color: white;
+  margin-left: 10px;
+}
+
+.employment-list-container {
+  list-style-type: none;
+}
+
+.employment-list {
+  color: white;
+  margin: 0px 0px 3px 0px;
+}
+
+.filter-input-label {
+  margin-left: 5px;
+  font-size: 18px;
+}
+
+.salary {
+  margin-left: 10px;
+}

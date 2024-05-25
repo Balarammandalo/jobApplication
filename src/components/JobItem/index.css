@@ -1,0 +1,78 @@
+.li-container {
+  list-style: none;
+  background-color: #272727;
+  margin: 20px 5px;
+  padding: 20px 25px;
+  border-radius: 15px;
+  width: 90%;
+  color: white;
+}
+
+.link-items {
+  text-decoration: none;
+  color: #fff;
+}
+
+.company-logo-title-rating {
+  display: flex;
+}
+
+.company-logo {
+  width: 60px;
+  margin-right: 20px;
+  margin-bottom: 8px;
+}
+
+.jobItemHeading {
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+
+.rating-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 0px;
+}
+
+.star {
+  color: gold;
+}
+
+.location-salary-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.location-salary-items {
+  display: flex;
+  gap: 20px;
+}
+
+.location-container {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.location {
+  font-size: 20px;
+  margin-right: 7px;
+}
+
+.job-item-des-heading {
+  margin: 10px 0px;
+  color: white;
+  font-weight: 500;
+}
+
+.package-para {
+  color: white;
+}
+
+.job-item-des {
+  width: 95%;
+  font-weight: 400;
+  color: #cbd5e1;
+}
