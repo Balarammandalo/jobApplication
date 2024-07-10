@@ -28,6 +28,29 @@ const employmentTypesList = [
   },
 ]
 
+const employeeLocationList = [
+  {
+    locationId: 'HYDERABAD',
+    displayLocation: 'Hyderabad',
+  },
+  {
+    locationId: 'CHENNAI',
+    displayLocation: 'Chennai',
+  },
+  {
+    locationId: 'BANGALORE',
+    displayLocation: 'Bangalore',
+  },
+  {
+    locationId: 'DELHI',
+    displayLocation: 'Delhi',
+  },
+  {
+    locationId: 'MUMBAI',
+    displayLocation: 'Mumbai',
+  },
+]
+
 const salaryRangesList = [
   {
     salaryRangeId: '1000000',
@@ -59,6 +82,7 @@ class Jobs extends Component {
     searchInput: '',
     apiStatus: apiStatusContainer.success,
     employmentType: [],
+    employmentLocation: [],
     salaryRange: '',
     allJobs: [],
   }
@@ -69,9 +93,14 @@ class Jobs extends Component {
 
   getAllJobs = async () => {
     this.setState({apiStatus: apiStatusContainer.inProgress})
-    const {searchInput, salaryRange, employmentType} = this.state
+    const {
+      searchInput,
+      salaryRange,
+      employmentType,
+      employmentLocation,
+    } = this.state
     const jwtToken = Cookies.get('jwt_token')
-    const url = `https://apis.ccbp.in/jobs?employment_type=${employmentType}&minimum_package=${salaryRange}&search=${searchInput}`
+    const url = `https://apis.ccbp.in/jobs?employment_type=${employmentType}&minimum_package=${salaryRange}&search=${searchInput}&location=${employmentLocation}`
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -111,16 +140,17 @@ class Jobs extends Component {
     return (
       <div>
         <input
-          type='search'
-          className='search-input'
-          placeholder='search'
+          type="search"
+          className="search-input"
+          placeholder="search"
           value={searchInput}
           onChange={this.onChangeSearch}
         />
         <button
-          type='button'
-          data-testid='searchButton'
-          className='button-icon'
+          type="button"
+          label="text"
+          data-testid="searchButton"
+          className="button-icon"
           onClick={this.onClickSearchIcon}
         >
           <MdSearch />
@@ -142,14 +172,14 @@ class Jobs extends Component {
         </ul>
       </div>
     ) : (
-      <div className='no-job-container'>
+      <div className="no-job-container">
         <img
-          src='https://assets.ccbp.in/frontend/react-js/no-jobs-img.png'
-          alt='no jobs'
-          className='noJobImg'
+          src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
+          alt="no jobs"
+          className="noJobImg"
         />
-        <h1 className='noJobHead'>No Jobs Founds</h1>
-        <p className='noJobPara'>
+        <h1 className="noJobHead">No Jobs Founds</h1>
+        <p className="noJobPara">
           we could not find any jobs. Try Other filters.
         </p>
       </div>
@@ -157,25 +187,25 @@ class Jobs extends Component {
   }
 
   jobLoaderView = () => (
-    <div className='loader-container loader' data-testid='loader'>
-      <Loader type='ThreeDots' color='#ffffff' height='50' width='50' />
+    <div className="loader-container loader" data-testid="loader">
+      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
   )
 
   onClickRetry = () => this.getAllJobs()
 
   jobsFailureView = () => (
-    <div className='failure-container'>
+    <div className="failure-container">
       <img
-        src='https://assets.ccbp.in/frontend/react-js/failure-img.png '
-        alt='failure view'
-        className='failureImg'
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png "
+        alt="failure view"
+        className="failureImg"
       />
-      <h1 className='head'>Oops! something Went Wrong</h1>
-      <p className='para'>We cannot seem to find page you are looking for.</p>
+      <h1 className="head">Oops! something Went Wrong</h1>
+      <p className="para">We cannot seem to find page you are looking for.</p>
       <button
-        type='button'
-        className='retry-button'
+        type="button"
+        className="retry-button"
         onClick={this.onClickRetry}
       >
         Retry
@@ -201,39 +231,61 @@ class Jobs extends Component {
     this.setState({salaryRange: event.target.value}, this.getAllJobs)
   }
 
-  selectEmploymentType = event => {
-    const {value, checked} = event.target
+  onSelectEmploymentType = type => {
     const {employmentType} = this.state
-    if (checked) {
-      this.setState(prevState => ({
-        employmentType: [...prevState.employmentType, value],
-      })),
-        this.getAllJobs
+
+    const inputNotInList = employmentType.filter(eachItem => eachItem === type)
+    if (inputNotInList.length === 0) {
+      this.setState(
+        prevState => ({
+          employmentType: [...prevState.employmentType, type],
+        }),
+        this.getJobs,
+      )
     } else {
-      const updateType = employmentType.filter(eachType => eachType !== value)
-      this.setState({employmentType: updateType}, this.getAllJobs)
+      const filteredData = employmentType.filter(eachItem => eachItem !== type)
+      this.setState({employmentType: filteredData}, this.getJobs)
+    }
+  }
+
+  onSelectEmploymentLocation = value => {
+    const {employmentLocation} = this.state
+
+    const inputNotInLocation = employmentLocation.filter(
+      eachLocted => eachLocted === value,
+    )
+    if (inputNotInLocation === 0) {
+      this.setState(prevState => ({
+        employmentLocation: [...prevState.employmentLocation, value],
+      }))
+    } else {
+      const updateLocation = employmentLocation.filter(
+        eachLocation => eachLocation !== value,
+      )
+      this.setState({employmentLocation: updateLocation}, this.getAllJobs)
     }
   }
 
   render() {
-    const {employmentType, salaryRange} = this.state
+    const {salaryRange} = this.state
     return (
-      <div className='job-container'>
+      <div className="job-container">
         <Headers />
-        <div className='job-container-items'>
-          <div className='profile-container'>
+        <div className="job-container-items">
+          <div className="profile-container">
             <ProfilePicture />
-            <hr className='hr-line' />
+            <hr className="hr-line" />
             <FilterGroups
               salaryRange={salaryRange}
-              employmentType={employmentType}
-              employmentTypesList={employmentTypesList}
               salaryRangesList={salaryRangesList}
-              selectEmploymentType={this.onSelectEmploymentType}
               selectSalaryRange={this.onSelectSalaryRange}
+              employmentTypesList={employmentTypesList}
+              selectEmploymentType={this.onSelectEmploymentType}
+              employeeLocationList={employeeLocationList}
+              selectEmploymentLocation={this.onSelectEmploymentLocation}
             />
           </div>
-          <div className='job-search-container'>
+          <div className="job-search-container">
             {this.renderSearchBar()}
             {this.renderAllJobs()}
           </div>

@@ -11,6 +11,7 @@ import {BiLinkExternal} from 'react-icons/bi'
 
 import Headers from '../Headers'
 import SimilarJobItem from '../SimilarJobItem'
+import SkillsCard from '../SkillsCard'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -110,7 +111,7 @@ class JobItemDetails extends Component {
         Oops! Something Went Wrong
       </h1>
       <p className="job-details-failure-view-message">
-        We cannot seem to find the page you are looking for.
+        We cannot seem to find the page you are looking for
       </p>
       <button
         type="button"
@@ -183,14 +184,7 @@ class JobItemDetails extends Component {
             <h1 className="job-details-description-heading">Skills</h1>
             <ul className="job-details-skills-items-container">
               {skills.map(eachSkill => (
-                <li key={eachSkill.name} className="skill-item">
-                  <img
-                    className="skill-img"
-                    src={eachSkill.image_url}
-                    alt={eachSkill.name}
-                  />
-                  <p className="skill-name">{eachSkill.name}</p>
-                </li>
+                <SkillsCard skillDetails={eachSkill} key={eachSkill.name} />
               ))}
             </ul>
           </div>

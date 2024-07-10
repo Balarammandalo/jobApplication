@@ -3,12 +3,18 @@ import './index.css'
 const FilterGroups = props => {
   const {
     salaryRange,
-    employmentType,
     salaryRangesList,
     employmentTypesList,
     selectSalaryRange,
     selectEmploymentType,
+
+    employeeLocationList,
+    selectEmploymentLocation,
   } = props
+
+  const onSelectEmploymentType = event => {
+    selectEmploymentType(event.target.value)
+  }
 
   const renderTypeOfEmployment = () => (
     <div className="employment-type-container">
@@ -20,8 +26,7 @@ const FilterGroups = props => {
               id={eachEmploy.employmentTypeId}
               type="checkbox"
               value={eachEmploy.employmentTypeId}
-              checked={employmentType.includes(eachEmploy.employmentTypeId)}
-              onChange={selectEmploymentType}
+              onChange={onSelectEmploymentType}
             />
             <label
               htmlFor={eachEmploy.employmentTypeId}
@@ -60,11 +65,41 @@ const FilterGroups = props => {
     </div>
   )
 
+  const onSelectEmploymentLocation = event => {
+    selectEmploymentLocation(event.target.value)
+  }
+
+  const renderLocationBased = () => (
+    <div className="employment-type-container">
+      <h1 className="employment-heading">Location</h1>
+      <ul className="employment-list-container">
+        {employeeLocationList.map(eachEmploy => (
+          <li key={eachEmploy.locationId} className="employment-list">
+            <input
+              id={eachEmploy.locationId}
+              type="checkbox"
+              value={eachEmploy.locationId}
+              onChange={onSelectEmploymentLocation}
+            />
+            <label
+              htmlFor={eachEmploy.locationId}
+              className="filter-input-label"
+            >
+              {eachEmploy.displayLocation}
+            </label>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+
   return (
     <div>
       {renderTypeOfEmployment()}
       <hr />
       {renderSalaryRange()}
+      <hr />
+      {renderLocationBased()}
     </div>
   )
 }

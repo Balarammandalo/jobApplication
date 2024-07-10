@@ -25,14 +25,22 @@ const Header = props => {
           <ul className="nav-mobile-button-container">
             <li className="nav-mobile-link-item">
               <Link to="/">
-                <button type="button" className="nav-mobile-button">
+                <button
+                  type="button"
+                  label="text"
+                  className="nav-mobile-button"
+                >
                   <AiFillHome className="nav-mobile-image" />
                 </button>
               </Link>
             </li>
             <li className="nav-mobile-link-item">
               <Link to="/jobs">
-                <button type="button" className="nav-mobile-button">
+                <button
+                  type="button"
+                  label="text"
+                  className="nav-mobile-button"
+                >
                   <BsBriefcaseFill className="nav-mobile-image" />
                 </button>
               </Link>
@@ -40,6 +48,7 @@ const Header = props => {
             <li className="nav-mobile-link-item">
               <button
                 type="button"
+                label="text"
                 onClick={onClickLogout}
                 className="nav-mobile-button"
               >
@@ -68,7 +77,12 @@ const Header = props => {
               </Link>
             </li>
             <li className="nav-menu-item">
-              <button onClick={onClickLogout} className="logout-desktop-button">
+              <button
+                onClick={onClickLogout}
+                type="button"
+                label="text"
+                className="logout-desktop-button"
+              >
                 Logout
               </button>
             </li>
